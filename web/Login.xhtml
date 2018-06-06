@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Inicio de Sesion</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./templates/Template1.xhtml">
+            <ui:define name="content">
+                <div id="login">
+                    <p:panel id="pnlLogin">
+                        <h:form id="frmLogin">
+                            <p:growl id="msjOk" showDetail="true"/>
+                            <h:panelGrid id="tblLogin" columns="2" cellpadding="5">
+                                <p:outputLabel for="nameUser" value="Nombre de Usuario: "/>
+                                <p:inputText id="nameUser" value="#{loginFormBean.user}" required="true"/>
+                                <p:outputLabel for="passUser" value="Contraseña:"/>
+                                <p:password id="passUser" value="#{loginFormBean.pass}" required="true"/>
+                                <p:outputLabel/>
+                                <p:commandButton id="btnIngresar" update="frmLogin" 
+                                     value="Ingresar" action="#{loginFormBean.validarUsuario()}"/>
+                            </h:panelGrid>
+                        </h:form>
+                    </p:panel>
+                </div>
+            </ui:define>
+            <ui:define name="top">
+                <p:outputLabel value="Inicio Sesion"/>
+            </ui:define>
+            <ui:define name="bottom">
+                <p:outputLabel value="Agg Tamare"/>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
